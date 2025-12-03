@@ -10,7 +10,7 @@ import sys
 import pathlib
 sys.path.append(str(pathlib.Path(__file__).parent.parent))
 
-from src.data_cleaning import (
+from src.data_cleaning import (  # noqa: E402
     load_wallace_data
 )
 # autopep8: on
@@ -40,3 +40,6 @@ wallace["last_contact_this_campaign_month"].value_counts()
 
 wallace["outcome_previous_campaign"].value_counts()
 wallace["new_contract_this_campaign"].value_counts()
+
+# Summary of numerical attributes
+wallace.describe()
