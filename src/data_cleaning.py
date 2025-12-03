@@ -47,4 +47,8 @@ def clean_wallace_data(data: pd.DataFrame) -> pd.DataFrame:
     clean_data['days_since_last_contact_previous_campaign'] = clean_data[
         'days_since_last_contact_previous_campaign'].replace(-1, fill_value)
 
+    # -- Map Target to 0/1 --
+    clean_data['new_contract_this_campaign'] = clean_data[
+        'new_contract_this_campaign'].map({'yes': 1, 'no': 0})
+
     return clean_data
