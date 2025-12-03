@@ -3,10 +3,7 @@ from sklearn.preprocessing import OneHotEncoder, RobustScaler  # type: ignore
 
 
 def create_preprocessor():
-    """
-    Creates a Scikit-Learn ColumnTransformer.
-    Includes Imputers for safety against future messy data.
-    """
+    """Creates a Scikit-Learn ColumnTransformer."""
 
     categorical_columns = [
         'town', 'country', 'job', 'married', 'education',
@@ -23,7 +20,8 @@ def create_preprocessor():
 
     # OneHotEncoder handles the string categories
     categorical_transformer = OneHotEncoder(
-        handle_unknown='ignore', sparse_output=False)
+        handle_unknown='ignore', sparse_output=False
+    )
 
     # RobustScaler is crucial for 'current_balance' outliers
     # This scaler is not influenced by a few large outliers.
