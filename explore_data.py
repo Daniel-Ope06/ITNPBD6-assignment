@@ -6,15 +6,17 @@ USAGE:
     Click 'Run Cell' or press Shift+Enter inside the cell blocks (# %%).
 """
 # %%
+import joblib  # type: ignore
+import pandas as pd
 import matplotlib.pyplot as plt
-from src.data_cleaning import (
-    load_wallace_data, clean_wallace_data
+from src.data_cleaning import clean_wallace_data
+from src.config import (
+    WALLACE_RAW_PATH, MODELS_DIR
 )
-from src.config import WALLACE_RAW_PATH
 
 # %%
 # Get the data
-wallace = load_wallace_data(WALLACE_RAW_PATH)
+wallace = pd.read_csv(WALLACE_RAW_PATH)
 wallace.head()
 
 # %%

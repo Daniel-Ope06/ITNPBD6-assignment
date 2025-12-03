@@ -1,11 +1,5 @@
 import pandas as pd
 from pandas import Series
-from pathlib import Path
-
-
-def load_wallace_data(filepath: Path) -> pd.DataFrame:
-    """Loads raw data from a CSV file."""
-    return pd.read_csv(filepath)
 
 
 def clean_wallace_data(data: pd.DataFrame) -> pd.DataFrame:

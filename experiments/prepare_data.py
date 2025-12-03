@@ -11,9 +11,7 @@ This ensures all models use the EXACT same data split.
 """
 import pandas as pd
 from sklearn.model_selection import train_test_split  # type: ignore
-from src.data_cleaning import (
-    load_wallace_data, clean_wallace_data
-)
+from src.data_cleaning import clean_wallace_data
 from src.config import (
     WALLACE_RAW_PATH, WALLACE_CLEAN_PATH,
     TRAIN_DATA_PATH, TEST_DATA_PATH
@@ -23,7 +21,7 @@ from src.config import (
 def run() -> None:
     """Execute data preparation."""
     print("Loading and cleaning data...")
-    wallace_raw: pd.DataFrame = load_wallace_data(WALLACE_RAW_PATH)
+    wallace_raw: pd.DataFrame = pd.read_csv(WALLACE_RAW_PATH)
     wallace_clean: pd.DataFrame = clean_wallace_data(wallace_raw)
 
     wallace_clean.to_csv(WALLACE_CLEAN_PATH, index=False)
