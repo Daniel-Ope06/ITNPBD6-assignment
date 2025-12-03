@@ -22,11 +22,13 @@ from src.config import (
 
 def run() -> None:
     """Execute data preparation."""
+    print("Loading and cleaning data...")
     wallace_raw: pd.DataFrame = load_wallace_data(WALLACE_RAW_PATH)
     wallace_clean: pd.DataFrame = clean_wallace_data(wallace_raw)
 
     wallace_clean.to_csv(WALLACE_CLEAN_PATH, index=False)
 
+    print("Splitting data for training and testing...")
     train_set, test_set = train_test_split(
         wallace_clean,
         test_size=0.2,
