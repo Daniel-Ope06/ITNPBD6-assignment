@@ -5,7 +5,8 @@ Runs the entire Machine Learning Pipeline in order.
 from experiments import (
     prepare_data,
     train_logistic_regression,
-    train_random_forest
+    train_random_forest,
+    train_neural_network
 )
 
 
@@ -20,6 +21,9 @@ def main():
 
     # Model 2
     train_random_forest.run()
+
+    # Model 3
+    train_neural_network.run()
 
 
 if __name__ == "__main__":
