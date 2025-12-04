@@ -120,18 +120,35 @@ new_customer_df: pd.DataFrame = pd.DataFrame(new_customer_dict)
 new_customer_df.head()
 
 # %%
-# --- MODEL 1: LOGISTIC REGRESSION
+# --- MODEL 1: LOGISTIC REGRESSION ---
 log_reg = joblib.load(MODELS_DIR / "logistic_regression.joblib")
 
 # Probability of saying 'Yes' to new contract
-prediction_prob = log_reg.predict_proba(new_customer_df)[:, 1][0]
+lr_prob = log_reg.predict_proba(new_customer_df)[:, 1][0]
 
 # Get the Yes/No
-prediction_label: str = log_reg.predict(new_customer_df)[0]
+lr_label: str = log_reg.predict(new_customer_df)[0]
 
-print(f"Propensity Score: {prediction_prob:.4f}")
+print("\n--- LINEAR REGRESSION PREDICTION ---")
+print(f"Propensity Score: {lr_prob:.4f}")
 print(f"Prediction: {
-    'Yes to Contract' if prediction_label == 1 else 'No to Contract'
+    'Yes to Contract' if lr_label == 1 else 'No to Contract'
+}")
+
+# %%
+# --- MODEL 2: RANDOM FOREST ---
+random_forest = joblib.load(MODELS_DIR / "random_forest.joblib")
+
+# Probability of saying 'Yes' to new contract
+rf_prob = random_forest.predict_proba(new_customer_df)[:, 1][0]
+
+# Get the Yes/No
+rf_label = random_forest.predict(new_customer_df)[0]
+
+print("\n--- RANDOM FOREST PREDICTION ---")
+print(f"Propensity Score: {rf_prob:.4f}")
+print(f"Prediction: {
+    'Yes to Contract' if rf_label == 1 else 'No to Contract'
 }")
 
 # %%
