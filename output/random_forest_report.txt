@@ -1,0 +1,14 @@
+--- RANDOM FOREST RESULTS ---
+Best Parameters: {'classifier__max_depth': None, 'classifier__min_samples_leaf': 2, 'classifier__n_estimators': 100}
+Best CV Score (F1): 0.5928
+Test Set AUC Score: 0.8669
+
+--- Test Set Classification Report ---
+              precision    recall  f1-score   support
+
+          No       0.90      0.92      0.91      8153
+         Yes       0.64      0.59      0.61      1980
+
+    accuracy                           0.86     10133
+   macro avg       0.77      0.75      0.76     10133
+weighted avg       0.85      0.86      0.85     10133
