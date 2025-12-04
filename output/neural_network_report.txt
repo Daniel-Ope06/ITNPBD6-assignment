@@ -1,0 +1,14 @@
+--- NEURAL NETWORK RESULTS ---
+Best Parameters: {'classifier__activation': 'relu', 'classifier__alpha': 0.001, 'classifier__hidden_layer_sizes': (100, 50, 25)}
+Best CV Score (F1): 0.5079
+Test Set AUC Score: 0.7818
+
+--- Test Set Classification Report ---
+              precision    recall  f1-score   support
+
+          No       0.86      0.95      0.91      8153
+         Yes       0.66      0.38      0.48      1980
+
+    accuracy                           0.84     10133
+   macro avg       0.76      0.67      0.69     10133
+weighted avg       0.82      0.84      0.82     10133
