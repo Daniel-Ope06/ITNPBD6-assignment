@@ -152,3 +152,17 @@ print(f"Prediction: {
 }")
 
 # %%
+# --- MODEL 3: NEURAL NETWORK ---
+neural_network = joblib.load(MODELS_DIR / "neural_network.joblib")
+
+# Probability of saying 'Yes' to new contract
+nn_prob = neural_network.predict_proba(new_customer_df)[:, 1][0]
+
+# Get the Yes/No
+nn_label = neural_network.predict(new_customer_df)[0]
+
+print("\n--- NEURAL NETWORK PREDICTION ---")
+print(f"Propensity Score: {nn_prob:.4f}")
+print(f"Prediction: {
+    'Yes to Contract' if nn_label == 1 else 'No to Contract'
+}")
